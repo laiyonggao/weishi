@@ -1086,8 +1086,12 @@
 
       function scroll(id) {
           var element = document.getElementById(id);
+          var offset = { top: element.offsetTop, 
+                         left: element.offsetLeft, 
+                         behavior: 'smooth' 
+                        };
           if (element)
-              window.scrollTo(element.offsetLeft,element.offsetTop);
+              window.scrollTo(offset);
       }
 
       // 获取当前显示视频的 id
