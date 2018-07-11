@@ -1064,6 +1064,7 @@
       var divNum = 11;  //总的视频数
       var startEventId = endEventId = 1;
       var endScrollTop = startScrollTop = document.body.scrollTop;
+      var t;
 
       // 触摸开始记录当前显示的视频id和scrollTop
       function handleStart(e) {
@@ -1076,13 +1077,18 @@
           endScrollTop = document.body.scrollTop;
           var offset = endScrollTop - startScrollTop;
           if (offset > 50 && offset < 604 && endEventId === startEventId) {
-              scroll(endEventId + 1); // 滚动到下一个视频
+              timerScroll(endEventId + 1); // 滚动到下一个视频
           } else if (offset < -50 && offset > -604 && endEventId === startEventId) {
-              scroll(endEventId - 1); // 滚动到上一个视频
+              timerScroll(endEventId - 1); // 滚动到上一个视频
           } else {
-              scroll(endEventId); // 滚动到当前视频
+              timerScroll(endEventId); // 滚动到当前视频
           }
        }
+
+      function timerScroll(id) {
+         clearTimeout(t);
+         t = setTimeout(scroll, 5, id); // 滚动到上一个视频
+      }
 
       function scroll(id) {
           var element = document.getElementById(id);
