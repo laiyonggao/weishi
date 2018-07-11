@@ -1077,18 +1077,18 @@
           endScrollTop = document.body.scrollTop;
           var offset = endScrollTop - startScrollTop;
           if (offset > 50 && offset < 604 && endEventId === startEventId) {
-              timerScroll(endEventId + 1); // 滚动到下一个视频
+              scroll(endEventId + 1); // 滚动到下一个视频
           } else if (offset < -50 && offset > -604 && endEventId === startEventId) {
-              timerScroll(endEventId - 1); // 滚动到上一个视频
+              scroll(endEventId - 1); // 滚动到上一个视频
           } else {
-              timerScroll(endEventId); // 滚动到当前视频
+              scroll(endEventId); // 滚动到当前视频
           }
        }
 
-      function timerScroll(id) {
+      /*function timerScroll(id) {
          clearTimeout(t);
          t = setTimeout(scroll, 5, id); // 滚动到上一个视频
-      }
+      }*/
 
       function scroll(id) {
           var element = document.getElementById(id);
